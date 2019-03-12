@@ -1,4 +1,4 @@
-chrome.webRequest.onBeforeRequest.addListener(
+(browser || chrome).webRequest.onBeforeRequest.addListener(
   function (details) {
     return {
       redirectUrl: details.url.replace(/(ajax\.googleapis|cdnjs\.cloudflare)\.com\/ajax\/libs\//, 'lib.baomitu.com/')
@@ -12,7 +12,7 @@ chrome.webRequest.onBeforeRequest.addListener(
   },
   ["blocking"]
 );
-chrome.webRequest.onBeforeRequest.addListener(
+(browser || chrome).webRequest.onBeforeRequest.addListener(
   function (details) {
     var content = '';
     const xhr = new XMLHttpRequest();
